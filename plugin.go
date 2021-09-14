@@ -16,10 +16,9 @@ package otelgorm
 
 import (
 	"fmt"
-
+	
 	"gorm.io/gorm"
-
-	"go.opentelemetry.io/contrib"
+	
 	"go.opentelemetry.io/otel"
 	oteltrace "go.opentelemetry.io/otel/trace"
 )
@@ -63,7 +62,6 @@ func NewPlugin(opts ...Option) *OtelPlugin {
 		cfg: cfg,
 		tracer: cfg.tracerProvider.Tracer(
 			defaultTracerName,
-			oteltrace.WithInstrumentationVersion(contrib.SemVersion()),
 		),
 	}
 }
